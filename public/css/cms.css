@@ -1,0 +1,86 @@
+html, body{
+	padding: 0;
+	margin:  0;
+	border:  0;
+	outline: 0;
+}
+body{
+	
+	background-image: url(../images/honey_im_subtle.png);
+	padding-top: 60px;
+	text-align: justify;
+	direction: rtl
+}
+
+a{
+	text-decoration: none;
+}
+.clearfix{
+	clear:both;
+}
+.wrapper{
+	width: 1200px;
+	margin: 0px auto;
+
+	
+}
+#header{
+	
+}
+
+#header > .wrapper {
+	
+
+}
+#header > .wrapper >  .title{
+	background-color: #939195;
+	height: 55px;
+	line-height: 55px;
+}
+#header > .wrapper > .title > h2 {
+	text-align: center;
+	font-size: 32px;
+	font-weight: bold;
+	padding-top: 10px
+
+	
+}
+#body> .wrapper{
+	background-color: #fff;
+}
+#body> .wrapper > .float{
+	float: right;
+	margin-left: 2%;
+	min-height: 400px;
+
+
+
+	
+	
+}
+#body> .wrapper > .float:nth-of-type(1){
+	width: 15%;
+	
+	
+	
+	
+}
+#body> .wrapper > .float:nth-of-type(2){
+	width: 83%;
+	margin-left: 0;
+
+	
+
+	
+}
+#body> .wrapper > .float > .right-link > a{
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #A980BA;
+	text-align: center;
+	margin-top: 5px;
+	margin-right: 5px;
+	border-radius: 5px;
+}
+
