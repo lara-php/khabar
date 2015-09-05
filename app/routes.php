@@ -21,3 +21,6 @@ Route::get('index',['as'=> 'index' ,function()
 	return View::make('index');
 }]);
 
+
+
+
