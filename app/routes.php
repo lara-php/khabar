@@ -64,6 +64,18 @@ Route::get('', ['as' => 'article.list' , function(){
 			->with('articles', $articles);
 }]);
 
+Route::get('delete/{id}', ['as'=>'article.delete' , function($id){
+
+	$article= Article::find($id);
+	$article->delete();
+	Session::flash('deleted', true);
+
+	return Redirect::route('article.list');
+
+
+
+
+}]);
 
 
 

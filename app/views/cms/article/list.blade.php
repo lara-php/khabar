@@ -71,7 +71,7 @@
 	
 @if(Session::has('flashMessage') && Session::get('flashMessage') == 'deleted')
 	<div class="alert alert-success">
-		<b>The selected record wa delete successfuly!</b>.
+		<b>مطلب مورد نظر با موفقیت حذف شد!</b>.
 	</div>
 @endif
 
@@ -123,7 +123,7 @@
 			<td>
 				<a href="" class="btn btn-info btn-xs">نمایش</a>
 				<a href="" class="btn btn-warning btn-xs">ویرایش</a>
-				<a href="" class="btn btn-danger btn-xs delete">حذف</a>
+				<a href="{{ route('content.delete', $content->id) }}" class="btn btn-danger btn-xs delete">حذف</a>
 			</td>
 			<td>{{ $article->publish == 1 ? 'منتشر شده' : 'منتشر نشده' }}</td>
 			<td>{{ $article->date}}</td>
