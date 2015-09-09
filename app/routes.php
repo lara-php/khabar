@@ -26,6 +26,19 @@ Route::get('cms',['as'=> 'cms' , function()
 	return View::make('layouts.cms');
 }]);
 
+Route::get('category/{id}', ['as'=> 'category' ,function($id)
+{
+	$category=Category::find($id);
+	$articles=$category->articles()->orderBy('date','desc')->paginate(4);
+	
+
+
+	return View::make('category')
+					->with('category',$category )
+					->with('articles',$articles );
+					
+}]);
+
 Route::group(['prefix' => 'cms/article/'], function()
 {
 
