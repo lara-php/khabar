@@ -21,6 +21,7 @@ Route::get('index',['as'=> 'index' ,function()
 	return View::make('index');
 }]);
 
+<<<<<<< HEAD
 Route::get('loginError', ['as' => 'loginError' , function(){
 	return View::make('user.loginError');
 }]);
@@ -70,9 +71,11 @@ Route::get('user/passwordRemind', ['as'=> 'password.remind', function(){
 
 	return View::make('user.passwordRemind');
 }]);
+=======
+>>>>>>> parent of ee9574e... route/login and table
 
-Route::post('RemindersController', ['as' => 'RemindersController', 'uses' => 'RemindersController@postRemind']);
 
+<<<<<<< HEAD
 Route::get('user/passwordReset', ['as'=> 'password.reset', function(){
 
 	return View::make('user.passwordReset');
@@ -213,5 +216,6 @@ Route::get('delete/{id}', ['as'=>'article.delete' , function($id){
 
 
 }]);
+=======
+>>>>>>> parent of ee9574e... route/login and table
 
-});
