@@ -24,3 +24,15 @@ Route::get('index',['as'=> 'index' ,function()
 
 
 
+Route::get('category/{id}', ['as'=> 'category' ,function($id)
+{
+	$category=Category::find($id);
+	$articles=$category->articles()->orderBy('date','desc')->paginate(4);
+	
+
+
+	return View::make('category')
+					->with('category',$category )
+					->with('articles',$articles );
+					
+}]);
