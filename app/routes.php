@@ -36,3 +36,36 @@ Route::get('category/{id}', ['as'=> 'category' ,function($id)
 					->with('articles',$articles );
 					
 }]);
+<<<<<<< HEAD
+=======
+
+Route::group(['prefix' => 'cms/article/'], function()
+{
+
+/* route article.list */
+
+Route::get('', ['as' => 'article.list' , function(){
+
+	$query = Article::select('*');
+
+		foreach (Input::only('id', 'date', 'title', 'publish') as $key => $value)
+		{
+			if (strlen($value) > 0)
+			{
+				$query->where($key, 'LIKE', "%$value%");
+			}
+		}
+
+		$query->orderBy('id', 'DESC');
+
+		$articles = $query->paginate(15);
+
+		return View::make('cms.article.list')
+			->with('articles', $articles);
+}]);
+
+
+
+
+});
+>>>>>>> parent of 53b37c9... cms.article.delete
