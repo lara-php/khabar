@@ -22,6 +22,9 @@ Route::get('index',['as'=> 'index' ,function()
 }]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of e8deadc... cms route
 Route::get('loginError', ['as' => 'loginError' , function(){
 	return View::make('user.loginError');
 }]);
@@ -51,6 +54,7 @@ Route::get('logout', ['as' => 'logout', function(){
 	Auth::logout();
 
 	return Redirect::route('index');
+<<<<<<< HEAD
 }]);
 
 <<<<<<< HEAD
@@ -79,10 +83,26 @@ Route::get('user/passwordRemind', ['as'=> 'password.remind', function(){
 Route::get('user/passwordReset', ['as'=> 'password.reset', function(){
 
 	return View::make('user.passwordReset');
+=======
+>>>>>>> parent of e8deadc... cms route
 }]);
 Route::post('RemindersController', ['as' => 'RemindersController', 'uses' => 'RemindersController@postReset']);
 
 >>>>>>> parent of e8deadc... cms route
+
+Route::get('user/passwordRemind', ['as'=> 'password.remind', function(){
+
+	return View::make('user.passwordRemind');
+}]);
+
+Route::post('RemindersController', ['as' => 'RemindersController', 'uses' => 'RemindersController@postRemind']);
+
+Route::get('user/passwordReset', ['as'=> 'password.reset', function(){
+
+	return View::make('user.passwordReset');
+}]);
+Route::post('RemindersController', ['as' => 'RemindersController', 'uses' => 'RemindersController@postReset']);
+
 
 Route::group(['prefix' => 'cms/article/'], function()
 {
@@ -126,6 +146,8 @@ Route::post('insert', ['as' => 'article.insert' , function(){
 			  'title'  =>'required|max:255|unique:article',
 			  'publish'=>'required|boolean'
 			  ];
+<<<<<<< HEAD
+=======
 
 	$validation = Validator::make(Input::all(),$rules);
 
@@ -179,6 +201,7 @@ Route::post('update', ['as' => 'article.update' , function(){
 			  'title'  =>'required|max:255',
 			  'publish'=>'required'
 			  ];
+>>>>>>> parent of e8deadc... cms route
 
 	$validation = Validator::make(Input::all(),$rules);
 
@@ -186,6 +209,62 @@ Route::post('update', ['as' => 'article.update' , function(){
 	{
 		Input::flash();
 
+<<<<<<< HEAD
+		return Redirect::route('article.add')
+											->withErrors($validation);
+	}
+
+	$article = new Article;
+	$article ->date    =Input::get('date');
+	$article ->title   =Input::get('title');
+	$article ->publish =Input::get('publish');
+	$article ->save();
+
+	foreach (Input::get('categoryId') as $categoryId ) 
+	{
+		$categoryArticle =  new categoryArticle ;
+		$categoryArticle ->articleId = $article->id;
+		$categoryArticle ->categoryId = $categoryId;
+		$categoryArticle ->save();
+		
+	}
+	
+	Session::flash('inserted', true);
+
+	return Redirect::route('article.list');
+									
+}]);
+/* route article.edit */
+
+Route::get('edit/{id}',['as' =>'article.edit' , function($id){
+
+	$article = Article::find($id);
+
+	return View::make('cms/article.edit')
+									->with('article' , $article);
+
+
+}]);
+
+/* route article.update */
+
+Route::post('update', ['as' => 'article.update' , function(){
+
+	$rules = [
+			  'id'   =>'required|exists:article,id',
+			  'date'   =>'required|date',
+			  'title'  =>'required|max:255',
+			  'publish'=>'required'
+			  ];
+
+	$validation = Validator::make(Input::all(),$rules);
+
+	if($validation -> fails())
+	{
+		Input::flash();
+
+=======
+>>>>>>> parent of e8deadc... cms route
 		return Redirect::route('article.edit', Input::get('id'))
 											->withErrors($validation);
 	}
@@ -216,6 +295,9 @@ Route::get('delete/{id}', ['as'=>'article.delete' , function($id){
 
 
 }]);
+<<<<<<< HEAD
 =======
 >>>>>>> parent of ee9574e... route/login and table
+=======
+>>>>>>> parent of e8deadc... cms route
 
