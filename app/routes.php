@@ -22,5 +22,13 @@ Route::get('index',['as'=> 'index' ,function()
 }]);
 
 
+Route::get('article/{id}', ['as'=> 'article' ,function($id)
+{
+	$article=Article::find($id);
+	//$date = jDate::forge()->format('datetime');
+	return View::make('article')->with('article',$article );
+	//->with('date', $date);
+	
+}]);
 
 
