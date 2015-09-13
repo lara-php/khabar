@@ -40,11 +40,11 @@
 	<div id="logo">
 		<div class="wrapper">
 			<div class="login" id="register" >
-				<a href="">ثبت نام</a>
+				<a href="{{ route('user.add') }}">ثبت نام</a>
 			</div>
 			<div class="login" id="login">
 			
-				{{ Form::open() }}
+				{{ Form::open(['route'=>'login']) }}
 				
 					{{ Form::text('username','',['placeholder'=>'نام کاربری']) }}
 					{{ Form::password('password',['placeholder'=>'رمز عبور']) }}
@@ -61,7 +61,19 @@
 	<div id="search">
 		<div class="wrapper">
 			<div class="flash">
+				@if (Auth::check())
+
+			<div class="login-message">
+				 {{ Auth::user()->username }} عزیز: خوش آمدید<br/>
+			</div>
+			<div class="login-message">
+				برای خروج از سایت <a href="{{ route('logout') }}">Logout</a> را کلیک کنید
+			</div>
+			<div class="clearfix"></div>
+
 				
+	
+	@endif
 			</div>
 			<div class="form-search">
 				<form>
