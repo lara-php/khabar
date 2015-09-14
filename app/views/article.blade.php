@@ -16,7 +16,7 @@
 	
 <div class="news">
 
-	<div class="date">{{ jDate::forge(strtotime($article->date))->format('Y-m-d  H:i:s') }}</div>
+	<div class="date">{{ $article->date }}</div>
 	
 		<img src="{{{asset('images/khabar/technology/'  .$article->image )}}}" />
 	
